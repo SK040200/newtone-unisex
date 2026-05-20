@@ -10,9 +10,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --black:#0d0d0d;--white:#fff;--cream:#f9f6f1;
+  --black:#0d0d0d;--white:#fff;
+  --cream:#f3ede4;
   --gold:#b8924a;--gold2:#d4a85a;--gold-pale:#f0e6d0;
-  --text:#1c1c1c;--muted:#888;--border:#e8e2d9;--bg2:#faf8f4;
+  --text:#1c1c1c;--muted:#888;--border:#e2d9cc;--bg2:#ede7dc;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
@@ -35,57 +36,115 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* HERO */
-.hero{background:var(--black);color:#fff;padding:60px 24px 0;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(180deg,#fff8f3 0%,#f3ede4 100%);color:var(--black);padding:56px 24px 0;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .hero-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(184,146,74,.14) 0%,transparent 70%);pointer-events:none}
-.h-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;opacity:0;animation:fu .7s 1.8s forwards}
-.h-greeting{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:8px;letter-spacing:.3px;min-height:20px;opacity:0;animation:fu .7s 1.9s forwards}
-.h-greeting em{color:var(--gold2);font-style:normal}
-.h-name{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,10vw,68px);font-weight:600;letter-spacing:-1px;line-height:1;margin-bottom:18px;white-space:nowrap;opacity:0;animation:fu .7s 2s forwards}
+.h-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:0;animation:fu .7s 1.8s forwards}
+.h-greeting{font-size:13px;color:rgba(13,13,13,.55);margin-bottom:8px;letter-spacing:.3px;min-height:20px;opacity:0;animation:fu .7s 1.9s forwards}
+.h-name{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,9vw,66px);font-weight:600;letter-spacing:-1px;line-height:1;margin-bottom:16px;white-space:nowrap;opacity:0;animation:fu .7s 2s forwards}
 .h-name em{color:var(--gold);font-style:italic}
-.h-services{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:28px;opacity:0;animation:fu .7s 2.1s forwards}
-.h-services span{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,.4);padding:0 16px}
-.h-services span:not(:last-child){border-right:1px solid rgba(255,255,255,.12)}
-.h-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(184,146,74,.3);border-radius:100px;padding:9px 20px;font-size:12px;color:rgba(255,255,255,.7);margin-bottom:0;opacity:0;animation:fu .7s 2.2s forwards}
+.h-services{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:24px;opacity:0;animation:fu .7s 2.1s forwards}
+.h-services span{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(13,13,13,.55);padding:0 14px}
+.h-services span:not(:last-child){border-right:1px solid rgba(13,13,13,.14)}
+.h-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(184,146,74,.35);border-radius:100px;padding:8px 20px;font-size:12px;color:rgba(13,13,13,.72);background:rgba(255,255,255,.55);opacity:0;animation:fu .7s 2.2s forwards}
 .h-badge .stars{color:var(--gold);letter-spacing:2px;font-size:11px}
-.open-bar{display:flex;align-items:center;justify-content:center;gap:20px;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.07);padding:14px 24px;margin-top:28px;opacity:0;animation:fu .7s 2.3s forwards}
+
+/* OPEN BAR — narrower */
+.open-bar{display:flex;align-items:center;justify-content:center;gap:16px;background:rgba(255,255,255,.65);border-top:1px solid rgba(184,146,74,.18);border-bottom:1px solid rgba(184,146,74,.18);padding:12px 24px;margin-top:24px;opacity:0;animation:fu .7s 2.3s forwards}
 .o-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 0 3px rgba(76,175,80,.2);flex-shrink:0}
 .o-dot.off{background:#e53935;box-shadow:0 0 0 3px rgba(229,57,53,.2)}
-.o-text{font-size:12px;color:rgba(255,255,255,.55)}
-.o-text strong{color:rgba(255,255,255,.85);font-weight:500}
-.o-hrs{font-size:11px;color:rgba(255,255,255,.3)}
+.o-text{font-size:12px;color:rgba(13,13,13,.62)}
+.o-text strong{color:rgba(13,13,13,.88);font-weight:500}
+.o-hrs{font-size:11px;color:rgba(13,13,13,.42)}
+
+/* HERO BOOK BUTTONS (below open bar, narrower) */
+.hero-book{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px 28px;flex-wrap:wrap;opacity:0;animation:fu .7s 2.4s forwards}
+.hb-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:100px;font-size:11px;font-weight:500;text-decoration:none;transition:transform .15s,opacity .15s;letter-spacing:.3px}
+.hb-btn:hover{transform:translateY(-2px);opacity:.88}
+.hb-wa{background:#25D366;color:#fff}
+.hb-call{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.hb-loc{background:rgba(184,146,74,.15);color:var(--gold);border:1px solid rgba(184,146,74,.3)}
 
 /* SERVICES GRID */
-.svc-strip{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 20px}
-.svc-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:8px;overflow:hidden}
-.svc-card{background:#fff;padding:26px 14px;text-align:center}
-.svc-icon{font-size:24px;margin-bottom:10px}
-.svc-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--black);margin-bottom:4px}
-.svc-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.svc-strip{background:rgba(255,255,255,.7);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 20px}
+.svc-inner{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:8px;overflow:hidden}
+.svc-card{background:#fff;padding:22px 10px;text-align:center}
+.svc-icon{font-size:22px;margin-bottom:8px}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--black);margin-bottom:3px}
+.svc-tag{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
 
 /* SECTION LABELS */
-.sec{padding:64px 20px;max-width:700px;margin:0 auto}
 .s-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
-.s-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--black);line-height:1.15;margin-bottom:8px}
-.s-sub{font-size:13px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:32px}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--black);line-height:1.15;margin-bottom:8px}
+.s-sub{font-size:13px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:24px}
 
-/* GALLERY */
-.gal-wrap{background:var(--bg2);padding:64px 20px}
-.gal-inner{max-width:700px;margin:0 auto}
-.gal-grid{display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto auto;gap:10px}
-.g-card{border-radius:7px;overflow:hidden;position:relative;background:#e8e2d9}
-.g-card:nth-child(1){grid-row:span 2;aspect-ratio:3/5}
-.g-card:nth-child(2){aspect-ratio:4/3}
-.g-card:nth-child(3){aspect-ratio:4/3}
-.g-card:nth-child(4){grid-column:span 2;aspect-ratio:16/5}
+/* SPLIT SECTION: Our Work (left) + Offers Slider (right) */
+.split-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+
+/* LEFT: Gallery stacked */
+.gal-left{background:var(--bg2);padding:48px 28px}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+.g-card{border-radius:7px;overflow:hidden;position:relative;background:#e2d9cc}
+.g-card:nth-child(1){grid-column:span 2;aspect-ratio:16/7}
+.g-card:nth-child(2){aspect-ratio:4/5}
+.g-card:nth-child(3){aspect-ratio:4/5}
 .g-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
 .g-card:hover img{transform:scale(1.05)}
-.g-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:28px 14px 13px}
+.g-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:22px 10px 10px}
+
+/* RIGHT: Offer Slider */
+.offer-right{background:var(--black);padding:36px 24px;display:flex;flex-direction:column;max-width:100%}
+.offer-slider{flex:1;position:relative;overflow:hidden;border-radius:16px;margin-top:20px;min-height:360px}
+.slide{display:none;width:100%;min-height:320px;border:1px solid rgba(184,146,74,.2);border-radius:16px;padding:24px;position:relative;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,.06)}
+.slide.active{display:flex}
+.slide-content{display:flex;flex-direction:column;gap:14px}
+.slide-img{width:100%;height:auto;border-radius:14px;object-fit:cover;display:block;margin-top:20px;max-height:420px}
+
+/* Slide 1 — May Offer */
+.slide-may{background:linear-gradient(145deg,#1a1206,#0d0d0d)}
+.may-tag{display:inline-block;background:var(--gold);color:var(--black);font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:2px;margin-bottom:16px}
+.may-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:8px}
+.may-title em{color:var(--gold);font-style:italic}
+.may-pct{font-family:'Cormorant Garamond',serif;font-size:88px;font-weight:600;color:var(--gold);line-height:1;letter-spacing:-3px}
+.may-pct small{font-size:18px;font-family:'Inter',sans-serif;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;display:block;margin-top:4px}
+.may-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-top:16px}
+.may-desc strong{color:rgba(255,255,255,.8);font-weight:500}
+
+/* Slide 2 — Academy */
+.slide-academy{background:linear-gradient(145deg,#0e1a12,#0d0d0d)}
+.acad-icon{font-size:36px;margin-bottom:12px}
+.acad-tag{display:inline-block;background:#1D9E75;color:#fff;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+.acad-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:6px}
+.acad-course{font-size:14px;font-weight:500;color:#5DCAA5;margin-bottom:16px;letter-spacing:.5px}
+.acad-price{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#5DCAA5;line-height:1}
+.acad-price small{font-size:14px;font-family:'Inter',sans-serif;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:2px;display:block;margin-top:4px}
+.acad-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.8;margin-top:14px}
+
+/* Slide 3 — Makeup */
+.slide-makeup{background:linear-gradient(145deg,#1a0a12,#0d0d0d)}
+.mk-tag{display:inline-block;background:#D4537E;color:#fff;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+.mk-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:6px}
+.mk-pct{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:600;color:#ED93B1;line-height:1;letter-spacing:-3px}
+.mk-pct small{font-size:14px;font-family:'Inter',sans-serif;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:2px;display:block;margin-top:4px}
+.mk-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.8;margin-top:14px}
+.mk-desc strong{color:#ED93B1;font-weight:500}
+
+.offer-image-stack{display:grid;gap:16px;margin-top:20px}
+.offer-image-stack img{width:100%;height:auto;border-radius:12px;border:1px solid rgba(184,146,74,.28);box-shadow:0 14px 38px rgba(0,0,0,.34);display:block}
+
+/* Slider Dots + Nav */
+.slider-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.slider-dots{display:flex;gap:8px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:background .3s,transform .3s}
+.dot.active{background:var(--gold);transform:scale(1.3)}
+.slider-arrows{display:flex;gap:8px}
+.s-arr{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:background .2s}
+.s-arr:hover{background:rgba(184,146,74,.2);color:var(--gold)}
 
 /* WHY US */
-.why-wrap{background:#fff;padding:64px 20px}
+.why-wrap{background:rgba(255,255,255,.6);padding:56px 20px}
 .why-inner{max-width:700px;margin:0 auto}
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.w-card{border:1px solid var(--border);border-radius:8px;padding:24px;position:relative;overflow:hidden;transition:border-color .3s}
+.w-card{border:1px solid var(--border);border-radius:8px;padding:24px;position:relative;overflow:hidden;transition:border-color .3s;background:#fff}
 .w-card:hover{border-color:var(--gold)}
 .w-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0;transition:opacity .3s}
 .w-card:hover::before{opacity:1}
@@ -93,20 +152,8 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
 .w-title{font-size:14px;font-weight:500;color:var(--black);margin-bottom:6px}
 .w-desc{font-size:12px;color:var(--muted);line-height:1.7}
 
-/* OFFER */
-.off-wrap{background:var(--black);padding:56px 20px}
-.off-card{max-width:680px;margin:0 auto;border:1px solid rgba(184,146,74,.25);border-radius:10px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
-.off-card::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(rgba(184,146,74,.1),transparent 70%)}
-.off-badge{display:inline-block;background:var(--gold);color:var(--black);font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:2px;margin-bottom:16px}
-.off-title{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;font-weight:600;line-height:1.2;margin-bottom:14px}
-.off-title em{color:var(--gold);font-style:italic}
-.off-info{font-size:13px;color:rgba(255,255,255,.45);line-height:2}
-.off-info strong{color:rgba(255,255,255,.8);font-weight:500}
-.off-pct{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:600;color:var(--gold);line-height:1;text-align:center}
-.off-pct small{font-size:14px;display:block;color:rgba(255,255,255,.35);font-family:'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;margin-top:4px}
-
 /* REVIEWS */
-.rev-wrap{background:var(--bg2);padding:64px 20px}
+.rev-wrap{background:var(--bg2);padding:56px 20px}
 .rev-inner{max-width:700px;margin:0 auto}
 .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .r-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px}
@@ -120,42 +167,43 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
 .r-name{font-size:13px;font-weight:500;color:var(--black)}
 .r-date{font-size:10px;color:var(--muted)}
 
-/* BUTTONS */
-.btn-wrap{background:var(--black);padding:64px 20px}
-.btn-inner{max-width:400px;margin:0 auto;text-align:center}
-.btn-inner .s-label{color:var(--gold)}
-.btn-inner .s-title{color:#fff;margin-bottom:6px}
-.btn-inner .s-sub{color:rgba(255,255,255,.3);margin-bottom:32px}
-.blist{display:flex;flex-direction:column;gap:10px}
-.b{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:6px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.3px;text-decoration:none;transition:transform .15s,opacity .15s;cursor:pointer;border:none;width:100%}
-.b:hover{transform:translateY(-2px);opacity:.9}
-.b:active{transform:scale(.98)}
-.b svg{width:17px;height:17px;flex-shrink:0}
-.b-wa{background:#25D366;color:#fff}
-.b-off{background:var(--gold);color:var(--black)}
-.b-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
-.b-loc{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.15)}
-.b-call{background:#fff;color:var(--black)}
-.b-gr{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.12)}
-.b-div{height:1px;background:rgba(255,255,255,.08);margin:4px 0}
+/* FLOATING WHATSAPP BUTTON */
+.float-wa{
+  position:fixed;bottom:28px;right:22px;z-index:200;
+  background:#25D366;color:#fff;
+  border-radius:100px;
+  padding:12px 18px 12px 14px;
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:500;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;
+  white-space:nowrap;
+}
+.float-wa:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+.float-wa svg{width:20px;height:20px;flex-shrink:0}
+.float-wa span{font-size:11px}
 
 /* FOOTER */
-.footer{background:var(--black);border-top:1px solid rgba(255,255,255,.07);padding:36px 20px 48px;text-align:center}
-.f-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:rgba(255,255,255,.7);font-weight:600;margin-bottom:4px}
-.f-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.f-info{font-size:12px;color:rgba(255,255,255,.3);line-height:2.2}
-.f-copy{margin-top:20px;font-size:10px;color:rgba(255,255,255,.12)}
+.footer{background:var(--black);padding:40px 20px 32px;text-align:center}
+.f-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,.7);font-weight:600;margin-bottom:4px}
+.f-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.f-info{font-size:12px;color:rgba(255,255,255,.3);line-height:2.2;margin-bottom:24px}
+.f-icons{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:20px}
+.f-icon-link{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:rgba(255,255,255,.5);transition:color .2s,transform .2s}
+.f-icon-link:hover{color:var(--gold);transform:translateY(-3px)}
+.f-icon-link svg{width:22px;height:22px}
+.f-icon-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase}
+.f-copy{font-size:10px;color:rgba(255,255,255,.12)}
 
 /* RESPONSIVE */
-@media(max-width:540px){
-  .svc-inner{grid-template-columns:1fr 1fr}
+@media(max-width:600px){
+  .split-wrap{grid-template-columns:1fr}
   .why-grid,.rev-grid{grid-template-columns:1fr}
-  .off-card{grid-template-columns:1fr;text-align:center}
-  .off-pct{font-size:60px}
-  .g-card:nth-child(1){grid-row:span 1;aspect-ratio:4/3}
-  .g-card:nth-child(4){grid-column:span 1;aspect-ratio:4/3}
-  .gal-grid{grid-template-columns:1fr}
-  .h-name{font-size:clamp(32px,9vw,52px)}
+  .svc-inner{grid-template-columns:1fr 1fr}
+  .h-name{white-space:normal;font-size:clamp(32px,9vw,52px)}
+  .float-wa span{display:none}
+  .float-wa{padding:14px}
 }
 </style>
 </head>
@@ -168,17 +216,23 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
   <div class="l-bar"></div>
 </div>
 
-<!-- SCROLLING TICKER -->
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/916361073548?text=Hi%20Newtone%20Salon%2C%20I%27d%20like%20to%20book%20an%20appointment!" class="float-wa" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Book Appointment</span>
+</a>
+
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="t-item"><span class="t-tag">May Offer</span><span>Happy Hours — 30% OFF on All Services</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Timing</span><span>Mon to Fri · 11 AM – 5 PM</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Academy</span><span>Professional Beauty Courses Now Enrolling</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Unisex</span><span>Hair · Beauty · Makeup · For Everyone</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">May Offer</span><span>Happy Hours — 30% OFF on All Services</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Timing</span><span>Mon to Fri · 11 AM – 5 PM</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Academy</span><span>Professional Beauty Courses Now Enrolling</span><span class="t-dot">·</span></div>
-    <div class="t-item"><span class="t-tag">Unisex</span><span>Hair · Beauty · Makeup · For Everyone</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">May Offer</span><span>Upto 50% OFF — Limited Time</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Academy</span><span>Beautician Course @ ₹9,999</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Makeup</span><span>Flat 50% OFF on All Makeup Services</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Open</span><span>Mon – Sun · 9:00 AM – 12:00 AM</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">May Offer</span><span>Upto 50% OFF — Limited Time</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Academy</span><span>Beautician Course @ ₹9,999</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Makeup</span><span>Flat 50% OFF on All Makeup Services</span><span class="t-dot">·</span></div>
+    <div class="t-item"><span class="t-tag">Open</span><span>Mon – Sun · 9:00 AM – 12:00 AM</span><span class="t-dot">·</span></div>
   </div>
 </div>
 
@@ -197,8 +251,8 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
   </div>
   <div class="open-bar">
     <div class="o-dot" id="oDot"></div>
-    <span class="o-text" id="oText">Checking…</span>
-    <span class="o-hrs">Mon – Sun &nbsp;·&nbsp; 10 AM – 8 PM</span>
+    <span class="o-text" id="oText"></span>
+    <span class="o-hrs">Mon – Sun &nbsp;·&nbsp; 9:00 AM – 12:00 AM</span>
   </div>
 </section>
 
@@ -212,75 +266,88 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
   </div>
 </div>
 
-<!-- GALLERY -->
-<div class="gal-wrap">
-  <div class="gal-inner">
-    <div class="sec" style="padding:0 0 28px">
-      <p class="s-label">Our Work</p>
-      <h2 class="s-title">We Only Do<br>Our Best Here</h2>
-      <p class="s-sub">Every chair, every client, every single time — precision and passion in equal measure. A few glimpses of what we create daily at Newtone.</p>
-    </div>
+<!-- SPLIT: OUR WORK (left) + OFFERS SLIDER (right) -->
+<div class="split-wrap">
+
+  <!-- LEFT: Our Work Gallery -->
+  <div class="gal-left">
+    <div class="s-label">Our Work</div>
+    <div class="s-title">We Only Do<br>Our Best Here</div>
+    <p class="s-sub">Precision and passion in equal measure — every client, every time.</p>
     <div class="gal-grid">
       <div class="g-card">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=85&auto=format&fit=crop" alt="Salon styling" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=85&auto=format&fit=crop" alt="Styling" loading="lazy">
         <div class="g-lbl">Precision Styling</div>
       </div>
       <div class="g-card">
-        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=85&auto=format&fit=crop" alt="Haircut" loading="lazy">
-        <div class="g-lbl">Haircut & Finish</div>
+        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=85&auto=format&fit=crop" alt="Haircut" loading="lazy">
+        <div class="g-lbl">Haircut</div>
       </div>
       <div class="g-card">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85&auto=format&fit=crop" alt="Hair color" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=85&auto=format&fit=crop" alt="Color" loading="lazy">
         <div class="g-lbl">Hair Coloring</div>
-      </div>
-      <div class="g-card">
-        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=85&auto=format&fit=crop" alt="Makeup" loading="lazy">
-        <div class="g-lbl">Makeup & Glow</div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- RIGHT: Offers Images -->
+  <div class="offer-right">
+    <div class="s-label" style="color:var(--gold)">This Month</div>
+    <div class="s-title" style="color:#fff">Special Offers</div>
+
+        <div class="offer-slider">
+      <div class="slide slide-may active">
+        <div class="slide-content">
+          <span class="may-tag">Special Offer</span>
+          <div class="may-title">Signature Cut &amp; Style</div>
+          <p class="may-desc">Save 30% on your first haircut with premium styling and hair therapy.</p>
+        </div>
+        <img class="slide-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85&auto=format&fit=crop" alt="Signature Cut & Style" loading="lazy">
+      </div>
+      <div class="slide slide-academy">
+        <div class="slide-content">
+          <span class="acad-tag">Academy Special</span>
+          <div class="acad-title">Beauty Training Course</div>
+          <p class="acad-desc">Enroll now and get 20% off our certified makeup and hair academy classes.</p>
+        </div>
+        <img class="slide-img" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=900&q=85&auto=format&fit=crop" alt="Beauty Training Course" loading="lazy">
+      </div>
+    </div>
+
+    <div class="slider-nav">
+      <div class="slider-dots">
+        <button class="dot active" type="button" data-slide="0" aria-label="Slide 1"></button>
+        <button class="dot" type="button" data-slide="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="slider-arrows">
+        <button class="s-arr prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="s-arr next" type="button" aria-label="Next slide">›</button>
+      </div>
+    </div>
+  </div>
 
 <!-- WHY US -->
 <div class="why-wrap">
   <div class="why-inner">
-    <div class="sec" style="padding:0 0 28px">
-      <p class="s-label">Why Newtone</p>
-      <h2 class="s-title">What Sets Us Apart</h2>
+    <div style="margin-bottom:28px">
+      <div class="s-label">Why Newtone</div>
+      <div class="s-title">What Sets Us Apart</div>
     </div>
     <div class="why-grid">
       <div class="w-card"><div class="w-num">01</div><div class="w-title">Expert Stylists</div><div class="w-desc">Trained in the latest global techniques — balayage, precision cuts, keratin treatments. Your look, perfected.</div></div>
       <div class="w-card"><div class="w-num">02</div><div class="w-title">Premium Products</div><div class="w-desc">Only professional-grade, skin-safe brands. No shortcuts on what touches your hair or skin.</div></div>
       <div class="w-card"><div class="w-num">03</div><div class="w-title">Unisex & Inclusive</div><div class="w-desc">A welcoming space for everyone — men, women, kids, all ages. Great style has no boundaries.</div></div>
-      <div class="w-card"><div class="w-num">04</div><div class="w-title">In-House Academy</div><div class="w-desc">Want to learn the craft? We offer professional beauty & hair courses with industry certification.</div></div>
+      <div class="w-card"><div class="w-num">04</div><div class="w-title">In-House Academy</div><div class="w-desc">Professional beauty & hair courses with industry certification. New batches enrolling now.</div></div>
     </div>
-  </div>
-</div>
-
-<!-- OFFER -->
-<div class="off-wrap">
-  <div class="off-card">
-    <div>
-      <span class="off-badge">May 2026 — Exclusive Offer</span>
-      <h3 class="off-title">Happy Hours<br><em>30% Off</em></h3>
-      <div class="off-info">
-        <strong>Monday to Friday</strong><br>
-        11:00 AM to 5:00 PM<br><br>
-        Walk in during happy hours and enjoy<br>
-        <strong>30% off on all services.</strong><br>
-        No coupon needed — just show up!
-      </div>
-    </div>
-    <div><div class="off-pct">30%<small>OFF</small></div></div>
   </div>
 </div>
 
 <!-- REVIEWS -->
 <div class="rev-wrap">
   <div class="rev-inner">
-    <div class="sec" style="padding:0 0 28px">
-      <p class="s-label">Google Reviews</p>
-      <h2 class="s-title">What Our Clients Say</h2>
+    <div style="margin-bottom:28px">
+      <div class="s-label">Google Reviews</div>
+      <div class="s-title">What Our Clients Say</div>
       <p class="s-sub">Real words from real people who've sat in our chairs.</p>
     </div>
     <div class="rev-grid">
@@ -293,7 +360,7 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
       <div class="r-card">
         <div class="r-ghead"><svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span class="r-glabel">Google Review</span></div>
         <div class="r-stars">★★★★★</div>
-        <p class="r-text">"Best hair color I've ever had. The stylist totally understood what I wanted. Great value, especially during happy hours. Highly recommend!"</p>
+        <p class="r-text">"Best hair color I've ever had. The stylist totally understood what I wanted. Great value — highly recommend Newtone!"</p>
         <div class="r-who"><div class="r-av">SK</div><div><div class="r-name">Suresh K.</div><div class="r-date">1 month ago</div></div></div>
       </div>
       <div class="r-card">
@@ -305,63 +372,47 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
       <div class="r-card">
         <div class="r-ghead"><svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span class="r-glabel">Google Review</span></div>
         <div class="r-stars">★★★★☆</div>
-        <p class="r-text">"Haircut and beard trim — both were excellent. Skilled, quick stylist. Love the ambience and there's easy parking nearby too. 10/10 would return."</p>
+        <p class="r-text">"Haircut and beard trim — both excellent. Skilled and quick stylist. Great ambience, easy parking nearby. 10/10 would return."</p>
         <div class="r-who"><div class="r-av">RN</div><div><div class="r-name">Rahul N.</div><div class="r-date">1 month ago</div></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BUTTONS -->
-<section class="btn-wrap">
-  <div class="btn-inner">
-    <p class="s-label">Connect With Us</p>
-    <h2 class="s-title" style="color:#fff">Book Your Visit</h2>
-    <p class="s-sub">Walk in or reach out — we're always ready for you.</p>
-    <div class="blist">
-      <a href="https://wa.me/916361073548?text=Hi%20Newtone%20Salon%2C%20I%27d%20like%20to%20book%20an%20appointment!" class="b b-wa" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Us
-      </a>
-      <a href="#" onclick="document.querySelector('.off-wrap').scrollIntoView({behavior:'smooth'});return false;" class="b b-off">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        View May Offers — 30% OFF
-      </a>
-      <a href="https://www.instagram.com/newtone_saloon" class="b b-ig" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Follow on Instagram
-      </a>
-      <a href="https://share.google/FDpbGSjnvhwvZojaw" class="b b-loc" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Get Directions
-      </a>
-      <a href="tel:+916361073548" class="b b-call">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.07 4.18 2 2 0 012.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        Call Salon
-      </a>
-      <div class="b-div"></div>
-      <a href="https://share.google/FDpbGSjnvhwvZojaw" class="b b-gr" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Write Us a Google Review
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="footer">
   <div class="f-name">Newtone Unisex Salon</div>
   <div class="f-tag">Hair · Beauty · Makeup · Academy</div>
   <div class="f-info">
-    📍 Bengaluru, Karnataka<br>
+    📍 Sy No 4/3, R.Sampangappa Complex, opp BDS Nagar, K Narayanpura, Bengaluru – 560077<br>
     📞 6361073548 &nbsp;·&nbsp; 7483178311<br>
-    🕐 Monday – Sunday &nbsp;·&nbsp; 10:00 AM – 8:00 PM
+    🕐 Monday – Sunday &nbsp;·&nbsp; 9:00 AM – 12:00 AM
   </div>
+
+  <!-- FOOTER ICON LINKS -->
+  <div class="f-icons">
+    <a href="https://www.instagram.com/newtone_saloon" class="f-icon-link" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span class="f-icon-label">Instagram</span>
+    </a>
+    <a href="https://share.google/FDpbGSjnvhwvZojaw" class="f-icon-link" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span class="f-icon-label">Directions</span>
+    </a>
+    <a href="tel:+916361073548" class="f-icon-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.07 4.18 2 2 0 012.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="f-icon-label">Call Us</span>
+    </a>
+    <a href="https://wa.me/916361073548" class="f-icon-link" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="f-icon-label">WhatsApp</span>
+    </a>
+  </div>
+
   <div class="f-copy">© 2026 Newtone Unisex Salon. All rights reserved.</div>
 </footer>
 
 <script>
-// LOADER
 window.addEventListener('load',()=>{
   setTimeout(()=>{
     const l=document.getElementById('loader');
@@ -370,7 +421,6 @@ window.addEventListener('load',()=>{
   },2000);
 });
 
-// DYNAMIC GREETING
 (function(){
   const h=new Date().getHours();
   let msg='';
@@ -381,23 +431,21 @@ window.addEventListener('load',()=>{
   document.getElementById('greeting').textContent=msg;
 })();
 
-// OPEN / CLOSED STATUS
 (function(){
   const now=new Date();
-  const h=now.getHours(),m=now.getMinutes();
-  const mins=h*60+m;
-  const isOpen=mins>=600&&mins<1200; // 10AM–8PM
+  const mins=now.getHours()*60+now.getMinutes();
+  const isOpen=mins>=540&&mins<720; // 9AM–12AM
   const dot=document.getElementById('oDot');
   const txt=document.getElementById('oText');
   if(isOpen){
-    const rem=1200-mins;
-    const rh=Math.floor(rem/60),rm=rem%60;
-    txt.innerHTML=`<strong>Open Now</strong> — Closes in ${rh>0?rh+'h ':''} ${rm}m`;
+    const rem=1440-mins;
+    txt.innerHTML=`<strong>Open Now</strong> — Closes in ${Math.floor(rem/60)}h ${rem%60}m`;
   } else {
     dot.classList.add('off');
-    txt.innerHTML=`<strong>Closed Now</strong> — Opens at 10:00 AM`;
+    txt.innerHTML=`<strong>Closed Now</strong> — Opens at 9:00 AM`;
   }
 })();
+
 </script>
 </body>
 </html>
